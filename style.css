@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+:root{
+  --paper:#F7F3EC;
+  --paper-deep:#EFE8D8;
+  --ink:#2B2620;
+  --ink-soft:#6B6255;
+  --navy:#2E4057;
+  --navy-deep:#1F2C3D;
+  --rust:#B5533C;
+  --rust-deep:#8C3E2C;
+  --line:#DDD3C0;
+  --gold:#C9A24B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Zen Kaku Gothic New",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(201,162,75,.05), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(46,64,87,.04), transparent 40%);
+}
+
+/* ---------- BINDER TAB NAV ---------- */
+.binder{
+  max-width:960px;
+  margin:0 auto;
+  padding:0 20px;
+}
+.tabnav{
+  display:flex;
+  gap:6px;
+  padding-top:28px;
+  position:relative;
+}
+.tab{
+  font-family:"Shippori Mincho",serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.08em;
+  text-decoration:none;
+  color:var(--paper);
+  padding:12px 26px 14px;
+  border-radius:10px 10px 0 0;
+  position:relative;
+  transform:translateY(6px);
+  transition:transform .18s ease;
+  box-shadow:0 -2px 6px rgba(0,0,0,.06);
+}
+.tab:hover{ transform:translateY(0); }
+.tab.home{ background:var(--navy); }
+.tab.travel{ background:var(--rust); }
+.tab.future{
+  background:var(--paper-deep);
+  color:var(--ink-soft);
+  border:1.5px dashed var(--line);
+  font-weight:500;
+  font-size:13px;
+}
+.tab.active{
+  transform:translateY(0);
+  box-shadow:0 -3px 10px rgba(0,0,0,.1);
+}
+.tab.active::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:6px;
+}
+.tab.home.active::after{ background:var(--navy); }
+.tab.travel.active::after{ background:var(--rust); }
+
+/* ---------- PAGE BODY (folder sheet) ---------- */
+.sheet{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:0 14px 14px 14px;
+  box-shadow:0 12px 34px rgba(43,38,32,.09);
+  padding:48px 44px;
+  margin-bottom:60px;
+  position:relative;
+}
+.sheet::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--navy), var(--rust));
+  border-radius:0 14px 0 0;
+}
+@media (max-width:640px){
+  .sheet{ padding:30px 22px; }
+  .tab{ padding:10px 16px 12px; font-size:13px; }
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+.eyebrow{
+  font-family:"Shippori Mincho",serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.32em;
+  color:var(--ink-soft);
+}
+h1.title{
+  font-family:"Shippori Mincho",serif;
+  font-weight:800;
+  font-size:clamp(32px,5vw,48px);
+  line-height:1.25;
+  margin:8px 0 6px;
+  color:var(--ink);
+}
+.lede{
+  font-size:15.5px;
+  color:var(--ink-soft);
+  max-width:60ch;
+}
+h2.section{
+  font-family:"Shippori Mincho",serif;
+  font-weight:700;
+  font-size:22px;
+  margin:0 0 18px;
+  display:flex; align-items:center; gap:10px;
+  color:var(--ink);
+}
+h2.section .bar{
+  width:6px; height:20px; border-radius:3px; background:var(--rust); display:inline-block;
+}
+
+/* ---------- FOOTER ---------- */
+.foot{
+  max-width:960px; margin:0 auto; padding:20px 20px 60px;
+  text-align:center; color:var(--ink-soft); font-size:12.5px; letter-spacing:.06em;
+}
+.foot .stamp{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:"Shippori Mincho",serif; font-weight:700; color:var(--navy);
+  border:1.5px solid var(--line); border-radius:999px; padding:6px 16px; margin-bottom:10px;
+}
+
+/* ---------- UTILITY ---------- */
+a{ color:inherit; }
+.stamp-icon{
+  width:26px; height:26px; border-radius:50%;
+  border:2px solid rgba(255,255,255,.85);
+  display:inline-grid; place-items:center; font-size:13px;
+}
